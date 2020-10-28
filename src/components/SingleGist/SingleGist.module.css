@@ -1,3 +1,6 @@
+
+
+
 .row {
     display: flex;
     justify-content: flex-start;
@@ -6,6 +9,10 @@
     border-bottom:  1px solid #EAEAEA;
     margin-top: 10px;
 }
+
+
+
+
 
 .profileImg {
     width: 200px;
@@ -21,4 +28,8 @@
 .name {
     align-self: center;
 }
+
+
+
+
 

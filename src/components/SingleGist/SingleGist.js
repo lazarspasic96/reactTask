@@ -1,23 +1,52 @@
 
 import React from 'react'
-import classes from './SingleGist.module.css'
+import classes from  './SingleGist.module.css'
 
-const SingleGist = (props) => {
 
-    const {image, name} = props.data
 
-    
+class SingleGist extends React.Component {
 
-    return <div className = {classes.row}>
-        <div className = {classes.profileImg}>
-            <img src={image} />
-        </div>
+    constructor(props) {
+        super(props)
+        this.state = {
+            isClicked: false
+        }
 
-        <div className = {classes.name}>
-            <p >{name}</p>
-        </div>
+    }
 
-    </div>
+    handleVisitedState = () => {
+
+        this.setState({
+            isClicked: !this.state.isClicked
+        })
+    }
+
+    render() {
+
+        const { image, name } = this.props.data
+        const { isClicked } = this.state
+
+
+
+        return (
+            <>
+                <div onClick={this.handleVisitedState} className={classes.row}>
+                    <div className={classes.profileImg}>
+                        <img style={isClicked ? { filter: 'brightness(50%)',  } : null} src={image} />
+                    </div>
+
+                    <div className={classes.name}>
+                        <p style = {isClicked ? {color: 'blue'}: null} >{name}</p>
+                    </div>
+
+                </div>
+
+            </>
+        )
+    }
+
 }
+
+
 
 export default SingleGist
